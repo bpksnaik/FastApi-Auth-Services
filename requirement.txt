@@ -1,0 +1,9 @@
+fastapi
+python - dotenv
+pydantic[email]
+pyjwt
+pymongo
+motor
+black
+isort
+bcrypt
