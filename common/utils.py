@@ -4,7 +4,7 @@ from logging import getLogger
 import bcrypt
 from fastapi import HTTPException, status
 
-logger = getLogger(__name__)
+from common.logger import logger
 
 
 def hashing_pw(password: bytes) -> bytes:
@@ -14,6 +14,7 @@ def hashing_pw(password: bytes) -> bytes:
     """
     try:
         # hashing the user password
+        logger.info(f"Hashing the User Password.")
         hashed_pw = bcrypt.hashpw(password, bcrypt.gensalt())
         return hashed_pw
 
@@ -31,6 +32,7 @@ def generate_unique_id() -> str:
     """
     try:
         # Generating unique id for the user's
+        logger.info(f"Generating a Unique id for the user.")
         uid = str(uuid.uuid4())
         return uid
 
@@ -55,6 +57,7 @@ def user_validation(user_details, collection) -> bool:
         ][0].get("password", "")
 
         # checks user provided password matches with user's login password stored in mongo
+        logger.info(f"Validating the user password.")
         if bcrypt.checkpw(user_details.password.encode("utf-8"), user_hashed_pw):
             return True
         return False

@@ -2,12 +2,17 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from routers.auth_service import auth
+from routers.recommendation_service import rec
 
 tags_metadata = [
     {
         "name": "Auth Service",
         "description": "Providing services for user registration and login.",
-    }
+    },
+    {
+        "name": "Recommendation Service",
+        "description": "Providing services for different recommendations.",
+    },
 ]
 
 app = FastAPI(
@@ -26,3 +31,4 @@ app.add_middleware(
 
 
 app.include_router(auth)
+app.include_router(rec)

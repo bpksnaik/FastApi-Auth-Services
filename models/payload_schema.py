@@ -10,3 +10,7 @@ class Userdetails(BaseModel):
 class UserCredentials(BaseModel):
     email_id: EmailStr = Field(description="User's Email_id")
     password: str = Field(description="User's password")
+
+
+class Recommendation(BaseModel):
+    keyword: str = Field(description="Keyword to provide recommendation of movies")

@@ -1,9 +1,11 @@
 fastapi
-python - dotenv
 pydantic[email]
+python-decouple
 pyjwt
 pymongo
 motor
 black
 isort
 bcrypt
+redis
+redis[hiredis]

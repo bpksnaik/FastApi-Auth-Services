@@ -3,7 +3,7 @@ import logging
 import jwt
 from fastapi import HTTPException, status
 
-from settings import config
+from config import token_algo, secret_key
 
 logger = logging.getLogger(__name__)
 
@@ -15,9 +15,7 @@ def generate_token(user_details) -> str:
     """
     try:
         # Generates the token with user information
-        token = jwt.encode(
-            user_details, config.get("SECRET_KEY"), algorithm=config.get("TOKEN_ALGO")
-        )
+        token = jwt.encode(user_details, secret_key, algorithm=token_algo)
         return token
     except Exception as err:
         logger.error(f"Error while generating the token and Error - {str(err)}")
