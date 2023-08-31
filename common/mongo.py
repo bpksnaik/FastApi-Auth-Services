@@ -7,7 +7,7 @@ from pymongo import MongoClient
 from fastapi import HTTPException, status
 
 from common.utils import generate_unique_id, hashing_pw, time_check
-from common.redis_cache import RedisOperation
+from common.redis_cache import RedisOperation, cache
 from common.logger import logger
 from config import user_collection_name, db_name, movie_collection_name, mongo_url
 
@@ -97,6 +97,7 @@ def get_movie_recommendation_data(title: str) -> list[dict]:
                 {
                     "_id": 0,
                     "title": 1,
+                    "release_date": 1,
                     "genres": 1,
                     "overview": 1,
                     "runtime": 1,
@@ -107,7 +108,8 @@ def get_movie_recommendation_data(title: str) -> list[dict]:
         ]
 
         # cache the data in redis
-        RedisOperation.set_cache_data(title, json.dumps(data))
+        cache.set(title, json.dumps(data))
+        # RedisOperation.set_cache_data(title, json.dumps(data))
         return data
 
     except Exception as err:

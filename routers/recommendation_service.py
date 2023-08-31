@@ -4,7 +4,7 @@ import time
 from fastapi import APIRouter, HTTPException, status, Query
 from starlette.responses import JSONResponse
 from common.mongo import get_movie_recommendation_data
-from common.redis_cache import RedisOperation
+from common.redis_cache import RedisOperation, cache
 from common.logger import logger
 from common.utils import time_check
 from models.service_response_schema import RecommendationResponse
@@ -29,7 +29,8 @@ def recommendation(
     """
     start_time = time.perf_counter()
     try:
-        cache_data = RedisOperation.get_cache_data(title)
+        # cache_data = RedisOperation.get_cache_data(title)
+        cache_data = cache.get(title)
         if not cache_data:
             logger.info(
                 f"Data is not present in Cache for given keyword - {str(title)}"
