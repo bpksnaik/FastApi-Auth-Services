@@ -9,3 +9,4 @@ isort
 bcrypt
 redis
 redis[hiredis]
+uvicorn

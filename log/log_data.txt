@@ -1,0 +1,12 @@
+2023-08-31 16:54:40,378 - INFO - function_name - recommendation  LOG_INFO - Data is not present in Cache for given keyword - tamil
+2023-08-31 16:54:40,378 - INFO - function_name - get_movie_recommendation_data  LOG_INFO - Fetching Recommendation data from Mongo.
+2023-08-31 16:54:40,378 - INFO - function_name - make_connection  LOG_INFO - Establishing a Mongo connection.
+2023-08-31 16:54:40,417 - INFO - function_name - get_movie_recommendation_data  LOG_INFO - Time taken to fetch the data from mongo is 0.03741240000817925
+2023-08-31 16:54:40,418 - INFO - function_name - recommendation  LOG_INFO - Total time taken for Recommendation service is 2.079608800006099
+2023-08-31 16:55:01,062 - INFO - function_name - recommendation  LOG_INFO - Total time taken for Recommendation service is 0.0009928999934345484
+2023-08-31 16:55:30,312 - INFO - function_name - recommendation  LOG_INFO - Data is not present in Cache for given keyword - Bhai
+2023-08-31 16:55:30,312 - INFO - function_name - get_movie_recommendation_data  LOG_INFO - Fetching Recommendation data from Mongo.
+2023-08-31 16:55:30,312 - INFO - function_name - make_connection  LOG_INFO - Establishing a Mongo connection.
+2023-08-31 16:55:30,366 - INFO - function_name - get_movie_recommendation_data  LOG_INFO - Time taken to fetch the data from mongo is 0.053788999997777864
+2023-08-31 16:55:30,367 - INFO - function_name - recommendation  LOG_INFO - Total time taken for Recommendation service is 0.055126899998867884
+2023-08-31 16:55:56,227 - INFO - function_name - recommendation  LOG_INFO - Total time taken for Recommendation service is 0.002110400004312396
