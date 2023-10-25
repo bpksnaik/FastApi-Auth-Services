@@ -97,13 +97,22 @@ class LRUCache:
         # Add the key to the front of the LRU list
         self.redis.zadd(self.cache_key + "_lru", {key: 0})
 
-    def delete(self, key):
+    def delete(self, key) -> None:
+        """
+        To delete or remove the specific key from cache.
+        :param key: cache key.
+        :return: None
+        """
         # Remove a key from the cache
         if self.redis.hexists(self.cache_key, key):
             self.redis.hdel(self.cache_key, key)
             self.redis.zrem(self.cache_key + "_lru", key)
 
-    def clear(self):
+    def clear(self) -> None:
+        """
+        To delete or clear entire lru cache.
+        :return: None.
+        """
         # Clear the entire cache
         self.redis.delete(self.cache_key)
         self.redis.delete(self.cache_key + "_lru")
